@@ -44,6 +44,9 @@ namespace Korzh.DbUtils.Import
                             if (datasetStream != null) {
                                 _logger?.LogInformation($"Importing {table.Name}...");
                                 var dataset = _datasetImporter.StartImport(datasetStream);
+
+                                dataset.PatchDbSchema(table.Schema);
+
                                 _dbWriter.StartSeeding(dataset);
 
                                 while (_datasetImporter.HasRecords()) {

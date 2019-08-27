@@ -340,6 +340,11 @@ namespace Korzh.DbUtils
         /// </summary>
         public void FinishSeeding()
         {
+            if(CurrentSeedingTable == null)
+            {
+                return;
+            }
+
             TurnOnConstraints();
             TurnOnAutoIncrement();
             Logger?.LogDebug("Finish seeding: " + GetTableFullName(CurrentSeedingTable));

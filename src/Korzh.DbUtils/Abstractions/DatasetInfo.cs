@@ -67,6 +67,11 @@ namespace Korzh.DbUtils
         /// <value>The schema name.</value>
         public string Schema { get; private set; }
 
+        public void PatchDbSchema(string schema)
+        {
+            Schema = schema;
+        }
+
         /// <summary>
         /// Gets the directioary which contains all table columns. 
         /// The key of each entry is the name of the column.
